@@ -64,14 +64,12 @@ class Princely
     end
   end
 
-  # Returns fully formed executable path with any command line switches
+  # Adds any standard cmd line arguments we need to pass and
+  # returns fully formed executable path with any command line switches
   # we've set based on our variables.
   #
   def exe_path
-    # Add any standard cmd line arguments we need to pass
-    @exe_path << " --input=html --server --log=#{log_file} "
-    @exe_path << @style_sheets
-    return @exe_path
+    "#{@exe_path} --input=html --server --log=#{log_file} #{@style_sheets}"
   end
 
   # Makes a pdf from a passed in string.

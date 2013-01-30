@@ -64,6 +64,11 @@ describe Princely do
       prince.exe_path.should == "/tmp/fake --input=html --server --log=/tmp/test_log "
     end
 
+    it "is idempotent" do
+      prince.exe_path
+      prince.exe_path.should == "/tmp/fake --input=html --server --log=/tmp/test_log "
+    end
+
     it "adds stylesheet paths" do
       prince.style_sheets = " -s test.css "
       prince.exe_path.should == "/tmp/fake --input=html --server --log=/tmp/test_log  -s test.css "
